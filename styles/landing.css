@@ -1,0 +1,790 @@
+
+.edica-loader {
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
+    /* background: url(../images/loader.gif) center no-repeat #fff;  */
+}
+  
+  .font-weight-medium {
+    font-weight: 500; }
+  
+  .edica-header.edica-landing-header {
+    background-image: linear-gradient(90deg, #ffffff 0%, #ffffff 55%, #fff0e8 55%, #fff0e8 100%); }
+    .edica-header.edica-landing-header .carousel-indicators {
+      top: 0;
+      left: auto;
+      margin: 0;
+      display: flex;
+      flex-direction: column; }
+      .edica-header.edica-landing-header .carousel-indicators li {
+        height: auto;
+        border: 0;
+        text-indent: 0;
+        background-color: transparent;
+        font-size: 21px;
+        font-weight: 700;
+        color: #000000;
+        line-height: 2.14; }
+    .edica-header.edica-landing-header .carousel-content-wrapper {
+      display: flex;
+      flex-direction: column;
+      justify-content: center; }
+      .edica-header.edica-landing-header .carousel-content-wrapper h1 {
+        margin-bottom: 22px; }
+      .edica-header.edica-landing-header .carousel-content-wrapper p {
+        margin-bottom: 22px; }
+      .edica-header.edica-landing-header .carousel-content-wrapper .carousel-content-btns .btn {
+        padding: 18px 34px;
+        font-size: 18px;
+        font-weight: 700;
+        color: #ffffff;
+        margin-right: 24px;
+        margin-bottom: 24px; }
+        .edica-header.edica-landing-header .carousel-content-wrapper .carousel-content-btns .btn:last-child {
+          margin-right: 0; }
+    .edica-header.edica-landing-header .carousel-img-wrapper {
+      display: flex;
+      padding-top: 95px;
+      justify-content: center;
+      align-items: flex-end; }
+  
+  .edica-header .nav-link {
+    font-size: 16px;
+    line-height: 1;
+    font-weight: 700; }
+  
+  .edica-footer-banner-section {
+    z-index: 1;
+    position: relative; }
+    .edica-footer-banner-section .footer-banner {
+      background-color: #fff3ee;
+      padding-top: 85px;
+      padding-bottom: 85px;
+      padding-left: 15px;
+      padding-right: 15px;
+      text-align: center;
+      border-radius: 8px; }
+      .edica-footer-banner-section .footer-banner .banner-title {
+        font-size: 55px;
+        font-weight: 700;
+        line-height: 0.82;
+        margin-bottom: 29px; }
+        @media (max-width: 767px) {
+          .edica-footer-banner-section .footer-banner .banner-title {
+            font-size: 40px; } }
+      .edica-footer-banner-section .footer-banner .banner-btns-wrapper {
+        margin-bottom: 18px; }
+        .edica-footer-banner-section .footer-banner .banner-btns-wrapper .btn {
+          padding: 20px 42px;
+          margin: 0 16px;
+          font-size: 20px;
+          line-height: 1;
+          font-weight: 700; }
+          @media (max-width: 767px) {
+            .edica-footer-banner-section .footer-banner .banner-btns-wrapper .btn {
+              margin: 8px 0; } }
+      .edica-footer-banner-section .footer-banner .banner-text {
+        font-size: 16px;
+        text-align: center;
+        color: #7d848b; }
+        @media (max-width: 767px) {
+          .edica-footer-banner-section .footer-banner .banner-text br {
+            display: none; } }
+  
+  .edica-footer {
+    background-color: #191919;
+    padding-top: 200px;
+    margin-top: -93px;
+    padding-bottom: 56px;
+    color: #ffffff; }
+    .edica-footer .footer-brand-wrapper {
+      display: block;
+      margin-bottom: 20px; }
+      .edica-footer .footer-brand-wrapper img {
+        width: 88px; }
+    .edica-footer .contact-details {
+      font-size: 22px;
+      font-weight: 700;
+      margin-bottom: 4px;
+      color: #ffffff; }
+    .edica-footer .footer-social-links {
+      padding-top: 31px;
+      padding-bottom: 31px; }
+    .edica-footer .footer-country-dropdown .dropdown-toggle {
+      border: 1px solid #282727;
+      background-color: transparent;
+      padding: 13px 15px;
+      font-size: 14px;
+      font-weight: 500;
+      line-height: 1.14;
+      color: inherit; }
+    .edica-footer .footer-country-dropdown .flag-icon {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      margin-right: 12px; }
+  
+  .footer-social-links a {
+    display: inline-flex;
+    font-size: 12px;
+    color: #121973;
+    width: 35px;
+    height: 35px;
+    align-items: center;
+    justify-content: center;
+    background-color: #f9f9f9;
+    border-radius: 50%;
+    margin-right: 10px; }
+    .footer-social-links a:hover {
+      text-decoration: none; }
+  
+  .footer-widget-area {
+    padding-bottom: 80px; }
+  
+  .footer-nav .nav-link {
+    color: inherit; }
+  
+  .footer-bottom-content {
+    padding-top: 31px;
+    padding-bottom: 31px;
+    border-top: 1px solid rgba(240, 240, 240, 0.07);
+    display: flex;
+    justify-content: space-between; }
+    @media (max-width: 767px) {
+      .footer-bottom-content {
+        display: block; } }
+    @media (max-width: 767px) {
+      .footer-bottom-content .footer-bottom-nav {
+        margin-bottom: 20px; } }
+    .footer-bottom-content .footer-bottom-nav a {
+      color: inherit;
+      font-size: 14px;
+      font-weight: 700;
+      line-height: 1.14;
+      display: inline-block; }
+      .footer-bottom-content .footer-bottom-nav a::after {
+        content: "-";
+        display: inline-block;
+        margin-left: 14px;
+        margin-right: 14px; }
+      .footer-bottom-content .footer-bottom-nav a:last-child::after {
+        content: none; }
+  
+  .edica-landing-section {
+    padding-top: 75px;
+    padding-bottom: 60px; }
+    .edica-landing-section .edica-landing-section-subtitle {
+      font-size: 22px;
+      line-height: 2.14;
+      margin-bottom: 16px;
+      font-weight: 400; }
+    .edica-landing-section .edica-landing-section-subtitle-alt {
+      font-size: 18px;
+      font-weight: 500;
+      line-height: 1;
+      padding-left: 111px;
+      position: relative;
+      color: #bbc5d2;
+      margin-bottom: 33px; }
+      .edica-landing-section .edica-landing-section-subtitle-alt::before {
+        content: "";
+        display: inline-block;
+        width: 90px;
+        height: 1px;
+        background-color: #bbc5d2;
+        position: absolute;
+        left: 0;
+        top: 50%; }
+    .edica-landing-section p {
+      font-size: 18px;
+      line-height: 1.56;
+      color: #3a3a3a; }
+    .edica-landing-section .edica-landing-section-title {
+      font-size: 45px;
+      font-weight: 700;
+      line-height: 1.04;
+      margin-bottom: 48px; }
+    .edica-landing-section.edica-landing-about {
+      padding-top: 147px; }
+      .edica-landing-section.edica-landing-about p {
+        margin-bottom: 33px; }
+      .edica-landing-section.edica-landing-about .landing-about-list {
+        list-style: none; }
+        .edica-landing-section.edica-landing-about .landing-about-list li {
+          position: relative;
+          font-size: 18px;
+          margin-bottom: 21px;
+          font-weight: 500;
+          color: #000000; }
+          .edica-landing-section.edica-landing-about .landing-about-list li::before {
+            content: "";
+            display: inline-block;
+            position: absolute;
+            border-width: 6px;
+            border-style: solid;
+            border-color: transparent #f29431 #f29431 transparent;
+            left: -40px;
+            top: 6px; }
+    .edica-landing-section.edica-landing-clients .partners-wrapper img {
+      margin: 28px; }
+      .edica-landing-section.edica-landing-clients .partners-wrapper img:first-child {
+        margin-left: 0; }
+      .edica-landing-section.edica-landing-clients .partners-wrapper img:last-child {
+        margin-right: 0; }
+    .edica-landing-section.edica-landing-services .landing-service-card {
+      margin-bottom: 85px; }
+      .edica-landing-section.edica-landing-services .landing-service-card .service-card-img {
+        margin-bottom: 36px; }
+      .edica-landing-section.edica-landing-services .landing-service-card .service-card-title {
+        font-size: 25px;
+        font-weight: 700;
+        margin-bottom: 15px; }
+      .edica-landing-section.edica-landing-services .landing-service-card .service-card-description {
+        font-size: 18px;
+        line-height: 1.56; }
+    .edica-landing-section.edica-landing-testimonials {
+      background-color: #fff3ee; }
+      .edica-landing-section.edica-landing-testimonials .landing-testimonial-carousel blockquote {
+        padding-top: 40px;
+        padding-bottom: 40px; }
+        .edica-landing-section.edica-landing-testimonials .landing-testimonial-carousel blockquote p {
+          font-size: 35px;
+          font-weight: 700;
+          line-height: 1.29;
+          text-align: center;
+          color: #000000; }
+          @media (max-width: 575px) {
+            .edica-landing-section.edica-landing-testimonials .landing-testimonial-carousel blockquote p {
+              font-size: 26px; } }
+      .edica-landing-section.edica-landing-testimonials .landing-testimonial-carousel .carousel-indicators {
+        position: static;
+        display: flex;
+        justify-content: space-between; }
+        @media (max-width: 575px) {
+          .edica-landing-section.edica-landing-testimonials .landing-testimonial-carousel .carousel-indicators {
+            margin-left: 0;
+            margin-right: 0;
+            align-items: center; } }
+        .edica-landing-section.edica-landing-testimonials .landing-testimonial-carousel .carousel-indicators li {
+          width: auto;
+          height: auto;
+          text-indent: 0;
+          opacity: 1;
+          background-color: transparent;
+          text-align: center;
+          padding-top: 8px; }
+          @media (max-width: 575px) {
+            .edica-landing-section.edica-landing-testimonials .landing-testimonial-carousel .carousel-indicators li {
+              padding-top: 0; } }
+          .edica-landing-section.edica-landing-testimonials .landing-testimonial-carousel .carousel-indicators li img {
+            border-radius: 50%;
+            width: 65px;
+            height: 65px;
+            transition: all 0.5s ease;
+            margin-top: 8px;
+            margin-bottom: 9px; }
+            @media (max-width: 575px) {
+              .edica-landing-section.edica-landing-testimonials .landing-testimonial-carousel .carousel-indicators li img {
+                width: 35px;
+                height: 35px;
+                margin-top: 0;
+                margin-bottom: 0; } }
+          .edica-landing-section.edica-landing-testimonials .landing-testimonial-carousel .carousel-indicators li .user-details {
+            visibility: hidden;
+            text-align: center; }
+            .edica-landing-section.edica-landing-testimonials .landing-testimonial-carousel .carousel-indicators li .user-details h6 {
+              margin-bottom: 0; }
+              @media (max-width: 575px) {
+                .edica-landing-section.edica-landing-testimonials .landing-testimonial-carousel .carousel-indicators li .user-details h6 {
+                  display: none; } }
+            .edica-landing-section.edica-landing-testimonials .landing-testimonial-carousel .carousel-indicators li .user-details p {
+              font-size: 13px;
+              color: #000000;
+              margin-bottom: 0; }
+              @media (max-width: 575px) {
+                .edica-landing-section.edica-landing-testimonials .landing-testimonial-carousel .carousel-indicators li .user-details p {
+                  display: none; } }
+          .edica-landing-section.edica-landing-testimonials .landing-testimonial-carousel .carousel-indicators li.active {
+            padding-top: 0; }
+            .edica-landing-section.edica-landing-testimonials .landing-testimonial-carousel .carousel-indicators li.active img {
+              height: 82px;
+              width: 82px; }
+              @media (max-width: 575px) {
+                .edica-landing-section.edica-landing-testimonials .landing-testimonial-carousel .carousel-indicators li.active img {
+                  width: 40px;
+                  height: 40px; } }
+            .edica-landing-section.edica-landing-testimonials .landing-testimonial-carousel .carousel-indicators li.active .user-details {
+              visibility: visible; }
+    .edica-landing-section.edica-landing-blog .edica-landing-section-title {
+      font-size: 35px;
+      line-height: 1.29;
+      margin-bottom: 66px; }
+    .edica-landing-section.edica-landing-blog .landing-blog-post .blog-post-thumbnail {
+      width: 100%;
+      margin-bottom: 37px; }
+    .edica-landing-section.edica-landing-blog .landing-blog-post .blog-post-category {
+      font-size: 16px;
+      line-height: 1.13;
+      color: #7d848b;
+      margin-bottom: 22px; }
+    .edica-landing-section.edica-landing-blog .landing-blog-post .blog-post-title {
+      font-size: 22px;
+      font-weight: 500;
+      color: #000000; }
+    .edica-landing-section.edica-landing-blog .landing-blog-post .blog-post-link {
+      color: #f29431; }
+      .edica-landing-section.edica-landing-blog .landing-blog-post .blog-post-link::after {
+        content: "\2192";
+        display: inline-block;
+        color: #f29431;
+        font-size: 16px;
+        margin-left: 14px;
+        transition: all 0.3s ease-in-out; }
+      .edica-landing-section.edica-landing-blog .landing-blog-post .blog-post-link:hover {
+        text-decoration: none; }
+        .edica-landing-section.edica-landing-blog .landing-blog-post .blog-post-link:hover::after {
+          transform: translateX(5px); }
+    .edica-landing-section.edica-landing-blog-posts .blog-post-card {
+      padding: 45px 60px;
+      border-radius: 8px; }
+      .edica-landing-section.edica-landing-blog-posts .blog-post-card .post-category {
+        font-size: 18px;
+        font-weight: 500;
+        line-height: 0.89;
+        margin-bottom: 8px; }
+      .edica-landing-section.edica-landing-blog-posts .blog-post-card .post-title {
+        font-size: 30px;
+        font-weight: 700; }
+      .edica-landing-section.edica-landing-blog-posts .blog-post-card .post-link {
+        font-size: 18px;
+        font-weight: 500; }
+        .edica-landing-section.edica-landing-blog-posts .blog-post-card .post-link::after {
+          content: "\2192";
+          display: inline-block;
+          color: inherit;
+          font-size: 16px;
+          margin-left: 8px;
+          transition: all 0.3s ease-in-out; }
+        .edica-landing-section.edica-landing-blog-posts .blog-post-card .post-link:hover {
+          text-decoration: none; }
+          .edica-landing-section.edica-landing-blog-posts .blog-post-card .post-link:hover::after {
+            transform: translateX(5px); }
+      .edica-landing-section.edica-landing-blog-posts .blog-post-card.blog-post-1 {
+        background-color: #fcf9ec; }
+        .edica-landing-section.edica-landing-blog-posts .blog-post-card.blog-post-1 .post-category {
+          color: #f29431; }
+        .edica-landing-section.edica-landing-blog-posts .blog-post-card.blog-post-1 .post-link {
+          color: #f29431; }
+      .edica-landing-section.edica-landing-blog-posts .blog-post-card.blog-post-2 {
+        background-color: #f4fbf8; }
+        .edica-landing-section.edica-landing-blog-posts .blog-post-card.blog-post-2 .post-category {
+          color: #2e937a; }
+        .edica-landing-section.edica-landing-blog-posts .blog-post-card.blog-post-2 .post-link {
+          color: #2e937a; }
+  
+  .edica-about-intro .intro-title {
+    color: #2e937a;
+    font-size: 45px;
+    font-weight: 700;
+    line-height: 1.31; }
+    .edica-about-intro .intro-title span {
+      background-color: rgba(76, 162, 141, 0.11); }
+  
+  .edica-about-intro .intro-content {
+    font-size: 22px;
+    font-weight: 500;
+    line-height: 1.45;
+    color: #3a3a3a; }
+    .edica-about-intro .intro-content .first-letter {
+      font-size: 55px;
+      font-weight: bold;
+      line-height: 0.85;
+      color: #000000;
+      float: left;
+      padding: 8px 15px; }
+  
+  .edica-about-vision .vision-title {
+    font-size: 45px;
+    font-weight: 700;
+    line-height: 1.04;
+    margin-bottom: 20px; }
+  
+  .edica-about-vision .vision-text {
+    font-size: 18px;
+    line-height: 1.56;
+    color: #3a3a3a; }
+  
+  .edica-about-counter .counter-card .counter-count {
+    font-size: 40px;
+    font-weight: 700;
+    line-height: 1;
+    margin-bottom: 10px; }
+  
+  .edica-about-counter .counter-card .count-label {
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 1; }
+  
+  .edica-about-goal .goal-title {
+    font-size: 45px;
+    font-weight: 700;
+    line-height: 1.04;
+    margin-bottom: 20px; }
+  
+  .edica-about-goal .goal-text {
+    font-size: 18px;
+    line-height: 1.56;
+    color: #3a3a3a; }
+  
+  .edica-about-clients .clients-title {
+    font-size: 45px;
+    font-weight: 700;
+    line-height: 1.04;
+    margin-bottom: 30px; }
+  
+  .edica-about-faq .faq-title {
+    font-size: 45px;
+    font-weight: 700;
+    line-height: 1.04;
+    margin-bottom: 22px; }
+  
+  .edica-about-faq .faq-section-text {
+    font-size: 18px;
+    line-height: 1.56;
+    color: #3a3a3a;
+    margin-bottom: 42px; }
+  
+  .edica-about-faq .accordion {
+    border: 0; }
+    .edica-about-faq .accordion .card {
+      border: 0;
+      border-bottom: 1px solid #e6ecf2;
+      border-radius: 0; }
+      .edica-about-faq .accordion .card .card-header {
+        background-color: transparent;
+        padding-top: 25px;
+        padding-bottom: 25px; }
+        .edica-about-faq .accordion .card .card-header a {
+          font-size: 16px;
+          font-weight: 500;
+          line-height: 1.25;
+          color: #000000;
+          display: block; }
+  
+  .blog .blog-post {
+    margin-bottom: 119px; }
+    .blog .blog-post .blog-post-thumbnail-wrapper {
+      height: 265px;
+      position: relative;
+      overflow: hidden;
+      margin-bottom: 26px; }
+      .blog .blog-post .blog-post-thumbnail-wrapper img {
+        max-width: 100%;
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        -o-object-fit: cover;
+           object-fit: cover;
+        transition: transform 0.3s ease-in-out; }
+    .blog .blog-post .blog-post-category {
+      color: #7d848b;
+      font-size: 16px;
+      line-height: 1.13;
+      margin-bottom: 8px; }
+    .blog .blog-post .blog-post-permalink:hover {
+      text-decoration: none; }
+    .blog .blog-post .blog-post-title {
+      font-size: 20px;
+      font-weight: 700;
+      line-height: 1.5;
+      color: #020202;
+      margin-bottom: 0; }
+    .blog .blog-post:hover .blog-post-thumbnail-wrapper img {
+      transform: scale(1.075); }
+    .blog .blog-post.fetured-post .blog-post-thumbnail-wrapper {
+      height: 296px; }
+  
+  .widget {
+    margin-bottom: 66px; }
+    .widget .widget-title {
+      font-size: 20px;
+      font-weight: 700;
+      line-height: 1.5;
+      color: #020202;
+      margin-bottom: 25px; }
+  
+  .widget-post-carousel .post-carousel .carousel-indicators {
+    padding: 0;
+    margin: 0;
+    margin-bottom: 30px;
+    left: auto;
+    right: 0;
+    top: auto;
+    bottom: 100%; }
+    .widget-post-carousel .post-carousel .carousel-indicators li {
+      width: 10px;
+      height: 10px;
+      margin: 5px;
+      border: 0;
+      background-color: #2e937a;
+      border-radius: 50%; }
+  
+  .widget-post-carousel .post-carousel .carousel-item img {
+    width: 100%;
+    height: 167px;
+    -o-object-fit: cover;
+       object-fit: cover;
+    margin-bottom: 18px; }
+  
+  .widget-post-carousel .post-carousel .carousel-item .post-title a {
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 1.5;
+    color: #020202; }
+    .widget-post-carousel .post-carousel .carousel-item .post-title a:hover {
+      text-decoration: none; }
+  
+  .widget-post-list .post-list {
+    padding-left: 0;
+    list-style: none; }
+    .widget-post-list .post-list .post-permalink {
+      color: #020202;
+      padding: 13px 0;
+      transition: all 0.3s ease-in-out; }
+      .widget-post-list .post-list .post-permalink:hover {
+        text-decoration: none;
+        background-color: #f4f4f4; }
+      .widget-post-list .post-list .post-permalink img {
+        width: 70px;
+        margin-right: 16px; }
+      .widget-post-list .post-list .post-permalink .media-body {
+        align-self: center; }
+        .widget-post-list .post-list .post-permalink .media-body .post-title {
+          margin-bottom: 0; }
+  
+  .blog-post .edica-page-title {
+    padding-bottom: 33px; }
+  
+  .blog-post .edica-blog-post-meta {
+    text-align: center;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 1;
+    color: #7d848b;
+    margin-bottom: 67px; }
+  
+  .blog-post .blog-post-featured-img {
+    margin-bottom: 44px; }
+  
+  .blog-post .post-content p {
+    font-size: 18px;
+    line-height: 1.56;
+    color: #3a3a3a;
+    margin-bottom: 50px; }
+  
+  .blog-post .post-content a {
+    color: #f29431;
+    text-decoration: underline; }
+  
+  .blog-post .post-content h2 {
+    font-size: 30px; }
+  
+  .blog-post .post-content ul {
+    list-style: none;
+    padding-left: 0;
+    margin-bottom: 67px; }
+    .blog-post .post-content ul li {
+      font-size: 16px;
+      line-height: 1.63;
+      color: #3a3a3a;
+      margin-bottom: 11px;
+      position: relative;
+      padding-left: 23px; }
+      .blog-post .post-content ul li::before {
+        content: "";
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background-color: #000000;
+        position: absolute;
+        top: 8px;
+        left: 0; }
+  
+  .blog-post .post-content blockquote {
+    margin-bottom: 70px;
+    padding-left: 94px;
+    /* background-image: url("../images/quote.svg"); */
+    background-position: left top;
+    background-repeat: no-repeat;
+    background-size: 60px; }
+    .blog-post .post-content blockquote p {
+      font-size: 22px;
+      font-weight: 700;
+      line-height: 1.45;
+      color: #0c0b0b;
+      margin-bottom: 24px; }
+    .blog-post .post-content blockquote .blockquote-footer {
+      font-size: 20px;
+      font-weight: 700;
+      color: #bbc5d2; }
+  
+  .blog-post .related-posts {
+    padding-top: 45px;
+    border-top: 1px solid #fff0e8;
+    margin-bottom: 52px; }
+    .blog-post .related-posts .section-title {
+      font-size: 30px;
+      line-height: 1.97; }
+    .blog-post .related-posts .post-thumbnail {
+      width: 100%;
+      margin-bottom: 21px; }
+    .blog-post .related-posts .post-category {
+      font-size: 16px;
+      line-height: 1.13;
+      color: #7d848b;
+      margin-bottom: 8px; }
+    .blog-post .related-posts .post-title {
+      font-size: 20px;
+      font-weight: bold;
+      line-height: 1.5;
+      color: #020202; }
+  
+  .blog-post .comment-section {
+    margin-bottom: 100px; }
+    .blog-post .comment-section .form-group {
+      margin-bottom: 33px; }
+    .blog-post .comment-section .form-control {
+      min-height: 60px;
+      padding: 21px 19px; }
+    .blog-post .comment-section .btn {
+      padding: 19px 45px;
+      color: #ffffff;
+      font-size: 18px;
+      font-weight: 700; }
+  
+  .edica-404 {
+    padding-top: 150px;
+    padding-bottom: 200px; }
+    .edica-404 .page-title {
+      font-size: 90px;
+      font-weight: 700;
+      line-height: 0.66;
+      color: #000000;
+      margin-bottom: 20px; }
+    .edica-404 .edica-404-subtitle {
+      font-size: 20px;
+      font-weight: 700;
+      line-height: 1.5;
+      color: #020202;
+      margin-bottom: 21px; }
+    .edica-404 .edics-404-text {
+      font-size: 30px;
+      font-weight: 700;
+      line-height: 1.17;
+      color: #000000;
+      margin-bottom: 38px; }
+    .edica-404 .edica-404-link {
+      padding: 18px 45px;
+      color: #ffffff;
+      border-radius: 4px;
+      font-size: 18px;
+      font-weight: 700; }
+  
+  .edica-coming-soon .comimg-soon-subtitle {
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 1.5;
+    color: #020202;
+    margin-bottom: 20px; }
+  
+  .edica-coming-soon .coming-soon-title {
+    font-size: 60px;
+    font-weight: 700;
+    line-height: 0.98;
+    color: #000000;
+    margin-bottom: 43px; }
+  
+  .edica-coming-soon .counter {
+    font-size: 40px;
+    font-weight: 700;
+    line-height: 0.75;
+    color: #f29431;
+    margin-bottom: 58px; }
+  
+  .edica-coming-soon .subscription-title {
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 1;
+    color: #020202;
+    margin-bottom: 11px; }
+  
+  .edica-coming-soon .subscription-form .form-group .form-control {
+    border-radius: 0;
+    border: 1px solid #fff0e8;
+    padding: 16px 13px;
+    height: 45px;
+    font-size: 14px;
+    line-height: 1;
+    color: #7d848b; }
+  
+  .edica-coming-soon .subscription-form .btn {
+    border-radius: 0;
+    color: #ffffff;
+    padding: 15px 21px;
+    line-height: 1;
+    font-size: 14px;
+    font-weight: 700; }
+  
+  label {
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 1;
+    color: #020202;
+    margin-bottom: 11px; }
+  
+  .form-group {
+    margin-bottom: 19px; }
+  
+  .form-control {
+    border: 2px solid #fff0e8;
+    padding: 16px 13px;
+    color: #7d848b;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1;
+    border-radius: 0; }
+    .form-control:not(textarea) {
+      height: 45px; }
+  
+  .edica-contact .contact-form-wrapper .btn {
+    padding: 18px 45px;
+    color: #ffffff;
+    font-size: 18px;
+    font-weight: 700; }
+  
+  .edica-contact .contact-sidebar h5 {
+    margin-bottom: 25px; }
+  
+  .edica-contact .contact-sidebar p {
+    font-size: 16px;
+    line-height: 1.63;
+    color: #7d848b;
+    margin-bottom: 19px; }
+  
+  .edica-contact .contact-sidebar .contact-map {
+    margin-top: 53px; }
+  
+  .edica-page-title {
+    font-size: 60px;
+    font-weight: 700;
+    line-height: 0.98;
+    color: #000000;
+    padding-top: 90px;
+    padding-bottom: 90px;
+    text-align: center; }
