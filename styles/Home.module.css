@@ -1,5 +1,50 @@
-.container {
+/* .container {
   padding: 0 2rem;
+} */
+
+.carousel-content-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.leadh1 {
+  font-family: "Old Standard TT", serif;
+  color: #2c2c25;
+  text-transform: uppercase;
+  font-weight: 400;
+}
+
+.nth-line-1,
+.nth-line-2 {
+  line-height: 1;
+}
+
+.nth-line-1 {
+  font-size: 19vw;
+}
+
+@media (min-width: 55em) {
+  .nth-line-1 {
+    font-size: 10.5vw;
+  }
+}
+
+.nth-line-2 {
+  font-size: 14.5vw;
+}
+@media (min-width: 55em) {
+  .nth-line-2 {
+    font-size: 8vw;
+  }
+}
+
+.lead {
+  color: rgb(59, 58, 58);
+  font-size: 1.5625em;
+  max-width: 20em;
+  margin: 0 auto;
+  text-align: center;
 }
 
 .main {
