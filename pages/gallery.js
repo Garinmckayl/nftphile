@@ -21,7 +21,7 @@ import Layout from "../components/Layout";
 import { SearchIcon } from "@chakra-ui/icons";
 
 // import styles from "./index.module.css";
-const walletPublicKey = "3EqUrFrjgABCWAnqMYjZ36GcktiwDtFdkNYwY6C6cDzy";
+const walletPublicKey = "HXJqMRLhbzRBZXnrqgqLkwnQARTUCVFDCGhaq25P1pcB";
 
 export default function GalleryView({}) {
   const { connection } = useConnection();
