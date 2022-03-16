@@ -68,9 +68,8 @@ a {
   width: 20px;
   height: 20px;
   /*     background: rgba(255, 255, 255, 0.2); */
-  background: lightblue
-    url("https://suplar.com/wp-content/uploads/2021/08/cropped-supl-logo.png")
-    no-repeat center/90%;
+  background: lightblue url("../public/images/nftphilef.png") no-repeat
+    center/90%;
   animation: animate 25s linear infinite;
   bottom: -150px;
 }

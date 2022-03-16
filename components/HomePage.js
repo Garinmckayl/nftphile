@@ -12,12 +12,18 @@ import {
   StackDivider,
   Icon,
   useColorModeValue,
+  Link,
 } from "@chakra-ui/react";
 import Layout from "../components/Layout";
 import {
   IoAnalyticsSharp,
   IoLogoBitcoin,
   IoSearchSharp,
+  IoFlowerOutline,
+  IoFingerPrintSharp,
+  IoSnow,
+  IoShapesSharp,
+  IoScanCircleSharp,
 } from "react-icons/io5";
 
 // import homeart from "../public/images/hom";
@@ -65,20 +71,23 @@ export default function HomePage() {
               different chains.
             </Text>
             <Stack direction={{ base: "column", md: "row" }} spacing={4}>
-              <Button
-                bg={"blue.400"}
-                color={"white"}
-                _hover={{
-                  bg: "blue.500",
-                }}
-                variant="outline"
-                size="lg"
-                rounded={"full"}
-              >
-                Get Started
-              </Button>
+              <Link href="/gallery" passHref>
+                <Button
+                  bg={"blue.400"}
+                  color={"white"}
+                  _hover={{
+                    bg: "blue.500",
+                  }}
+                  variant="outline"
+                  size="lg"
+                  rounded={"full"}
+                >
+                  Start Exploring
+                </Button>
+              </Link>
               <Button
                 colorScheme="teal"
+                disabled
                 variant="outline"
                 size="lg"
                 rounded={"full"}
@@ -146,22 +155,10 @@ export default function HomePage() {
       <Container maxW={"8xl"} py={12}>
         <SimpleGrid columns={{ base: 1, md: 2 }} spacing={10}>
           <Stack spacing={4}>
-            <Text
-              textTransform={"uppercase"}
-              color={"blue.400"}
-              fontWeight={600}
-              fontSize={"sm"}
-              bg={useColorModeValue("blue.50", "blue.900")}
-              p={2}
-              alignSelf={"flex-start"}
-              rounded={"md"}
-            >
-              Use it
-            </Text>
-            <Heading>Instagram for nft</Heading>
+            <Heading>CREATE YOUR GALERIES</Heading>
             <Text color={"gray.500"} fontSize={"lg"}>
-              Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
-              nonumy eirmod tempor invidunt ut labore
+              Create your own personalized gallery by selecting from a variety
+              of layouts and styles.
             </Text>
             <Stack
               spacing={4}
@@ -173,29 +170,22 @@ export default function HomePage() {
             >
               <Feature
                 icon={
+                  <Icon as={IoFlowerOutline} color={"pink.500"} w={5} h={5} />
+                }
+                iconBg={useColorModeValue("pink.100", "pink.900")}
+                text={"Follow interesting galleries"}
+              />
+              <Feature
+                icon={
                   <Icon
-                    as={IoAnalyticsSharp}
-                    color={"yellow.500"}
+                    as={IoFingerPrintSharp}
+                    color={"pink.500"}
                     w={5}
                     h={5}
                   />
                 }
-                iconBg={useColorModeValue("yellow.100", "yellow.900")}
-                text={"Business Planning"}
-              />
-              <Feature
-                icon={
-                  <Icon as={IoLogoBitcoin} color={"green.500"} w={5} h={5} />
-                }
-                iconBg={useColorModeValue("green.100", "green.900")}
-                text={"Financial Planning"}
-              />
-              <Feature
-                icon={
-                  <Icon as={IoSearchSharp} color={"purple.500"} w={5} h={5} />
-                }
-                iconBg={useColorModeValue("purple.100", "purple.900")}
-                text={"Market Analysis"}
+                iconBg={useColorModeValue("pink.100", "pink.900")}
+                text={"Get a personal URL you can embed anywhere"}
               />
             </Stack>
           </Stack>
@@ -218,22 +208,10 @@ export default function HomePage() {
       <Container maxW={"8xl"} py={12}>
         <SimpleGrid columns={{ base: 1, md: 2 }} spacing={10}>
           <Stack spacing={4}>
-            <Text
-              textTransform={"uppercase"}
-              color={"blue.400"}
-              fontWeight={600}
-              fontSize={"sm"}
-              bg={useColorModeValue("blue.50", "blue.900")}
-              p={2}
-              alignSelf={"flex-start"}
-              rounded={"md"}
-            >
-              Our Story
-            </Text>
-            <Heading>A digital Product design agency</Heading>
+            <Heading>Several Wallets and Chains</Heading>
             <Text color={"gray.500"} fontSize={"lg"}>
-              Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
-              nonumy eirmod tempor invidunt ut labore
+              Do you have different wallets where you save your NFTs? There is
+              no need to be concerned.
             </Text>
             <Stack
               spacing={4}
@@ -244,30 +222,16 @@ export default function HomePage() {
               }
             >
               <Feature
-                icon={
-                  <Icon
-                    as={IoAnalyticsSharp}
-                    color={"yellow.500"}
-                    w={5}
-                    h={5}
-                  />
-                }
-                iconBg={useColorModeValue("yellow.100", "yellow.900")}
-                text={"Business Planning"}
+                icon={<Icon as={IoSnow} color={"yellow.500"} w={5} h={5} />}
+                iconBg={useColorModeValue("pink.100", "pink.900")}
+                text={"Add NFTs from a variety of wallets and chains"}
               />
               <Feature
                 icon={
-                  <Icon as={IoLogoBitcoin} color={"green.500"} w={5} h={5} />
+                  <Icon as={IoShapesSharp} color={"pink.500"} w={5} h={5} />
                 }
-                iconBg={useColorModeValue("green.100", "green.900")}
-                text={"Financial Planning"}
-              />
-              <Feature
-                icon={
-                  <Icon as={IoSearchSharp} color={"purple.500"} w={5} h={5} />
-                }
-                iconBg={useColorModeValue("purple.100", "purple.900")}
-                text={"Market Analysis"}
+                iconBg={useColorModeValue("pink.100", "pink.900")}
+                text={"Eth, Solana, Binance, Polygon, and Avalanche Supported"}
               />
             </Stack>
           </Stack>
@@ -312,12 +276,12 @@ export default function HomePage() {
               alignSelf={"flex-start"}
               rounded={"md"}
             >
-              Our Story
+              Connect
             </Text>
-            <Heading>A digital Product design agency</Heading>
+            <Heading>Follow Anyone!.</Heading>
             <Text color={"gray.500"} fontSize={"lg"}>
-              Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
-              nonumy eirmod tempor invidunt ut labore
+              NFTPHILE allows you to follow Blockchain addresses and get
+              followed back.
             </Text>
             <Stack
               spacing={4}
@@ -329,29 +293,19 @@ export default function HomePage() {
             >
               <Feature
                 icon={
-                  <Icon
-                    as={IoAnalyticsSharp}
-                    color={"yellow.500"}
-                    w={5}
-                    h={5}
-                  />
+                  <Icon as={IoShapesSharp} color={"pink.500"} w={5} h={5} />
                 }
-                iconBg={useColorModeValue("yellow.100", "yellow.900")}
-                text={"Business Planning"}
+                iconBg={useColorModeValue("pink.100", "pink.900")}
+                text={"Follow Any Address From Any Chain"}
               />
               <Feature
                 icon={
-                  <Icon as={IoLogoBitcoin} color={"green.500"} w={5} h={5} />
+                  <Icon as={IoScanCircleSharp} color={"pink.500"} w={5} h={5} />
                 }
-                iconBg={useColorModeValue("green.100", "green.900")}
-                text={"Financial Planning"}
-              />
-              <Feature
-                icon={
-                  <Icon as={IoSearchSharp} color={"purple.500"} w={5} h={5} />
+                iconBg={useColorModeValue("pink.100", "pink.900")}
+                text={
+                  "Your data will be synced to the NFTPHILE open graph protocol."
                 }
-                iconBg={useColorModeValue("purple.100", "purple.900")}
-                text={"Market Analysis"}
               />
             </Stack>
           </Stack>
