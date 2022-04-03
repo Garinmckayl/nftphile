@@ -19,6 +19,7 @@ const Layout = (props) => (
     <Head>
       <title>NFTPHILE</title>
       <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+      <script async src="https://cdn.splitbee.io/sb.js"></script>
     </Head>
     <NavBar />
     <div className="Content" style={contentStyle}>
