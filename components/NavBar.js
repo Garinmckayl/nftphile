@@ -19,7 +19,7 @@ import {
 } from "@chakra-ui/react";
 import { HamburgerIcon, CloseIcon, AddIcon } from "@chakra-ui/icons";
 
-const Links = ["gallery", "protocol", "faq", "about", "contact"];
+const Links = ["gallery", "protocol", "faq", "contact"];
 
 const NavLink = ({ children }) => (
   <Link
@@ -80,7 +80,7 @@ export default function withAction() {
               ))}
             </HStack>
           </HStack>
-          {/* <Flex alignItems={"center"}>
+          <Flex alignItems={"center"}>
             <Link href="/connectWallet" passHref>
               <Button
                 display={{ base: "none", md: "inline-flex" }}
@@ -114,7 +114,7 @@ export default function withAction() {
               </Button>
             </Link>
 
-            <Menu>
+            {/* <Menu>
               <MenuButton
                 as={Button}
                 rounded={"full"}
@@ -135,8 +135,8 @@ export default function withAction() {
                 <MenuDivider />
                 <MenuItem>Link 3</MenuItem>
               </MenuList>
-            </Menu>
-          </Flex> */}
+            </Menu> */}
+          </Flex>
         </Flex>
 
         {isOpen ? (
