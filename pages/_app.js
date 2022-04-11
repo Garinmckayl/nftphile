@@ -8,6 +8,14 @@ import "../styles/globals.css";
 // export default MyApp
 
 import { extendTheme } from "@chakra-ui/react";
+import { Web3ReactProvider } from "@web3-react/core";
+import { ethers } from "ethers";
+
+const getLibrary = (provider) => {
+  const library = new ethers.providers.Web3Provider(provider);
+  library.pollingInterval = 8000; // frequency provider is polling
+  return library;
+};
 
 // 2. Extend the theme to include custom colors, fonts, etc
 const colors = {
@@ -25,7 +33,9 @@ import { ChakraProvider } from "@chakra-ui/react";
 function MyApp({ Component, pageProps }) {
   return (
     <ChakraProvider theme={theme}>
-      <Component {...pageProps} />
+      <Web3ReactProvider getLibrary={getLibrary}>
+        <Component {...pageProps} />
+      </Web3ReactProvider>
     </ChakraProvider>
   );
 }

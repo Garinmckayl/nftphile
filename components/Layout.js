@@ -1,4 +1,5 @@
 import Head from "next/head";
+import Footer from "./Footer";
 import NavBar from "./NavBar";
 
 const layoutStyle = {
@@ -25,7 +26,7 @@ const Layout = (props) => (
     <div className="Content" style={contentStyle}>
       {props.children}
     </div>
-    {/* <NavBar /> */}
+    <Footer />
   </div>
 );
 

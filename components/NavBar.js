@@ -1,5 +1,5 @@
 /* eslint-disable react-hooks/rules-of-hooks */
-import { ReactNode } from "react";
+import { useEffect, useState } from "react";
 import {
   Box,
   Flex,
@@ -16,8 +16,13 @@ import {
   useDisclosure,
   useColorModeValue,
   Stack,
+  MenuGroup,
 } from "@chakra-ui/react";
-import { HamburgerIcon, CloseIcon, AddIcon } from "@chakra-ui/icons";
+import { IoPersonOutline } from "react-icons/io5";
+import { useWeb3React } from "@web3-react/core";
+import { connectors } from "../utils/connectors";
+
+import { HamburgerIcon, CloseIcon, ExternalLinkIcon } from "@chakra-ui/icons";
 
 const Links = ["gallery", "protocol", "faq", "about", "contact"];
 
@@ -38,6 +43,28 @@ const NavLink = ({ children }) => (
 );
 
 export default function withAction() {
+  const [network, setNetwork] = useState(undefined);
+
+  const { library, chainId, account, activate, deactivate, active } =
+    useWeb3React();
+
+  const refreshState = () => {
+    window.localStorage.setItem("provider", undefined);
+    setNetwork("");
+    // setMessage("");
+    // setSignature("");
+    // setVerified(undefined);
+  };
+  const disconnect = () => {
+    refreshState();
+    deactivate();
+  };
+
+  useEffect(() => {
+    const provider = window.localStorage.getItem("provider");
+    if (provider) activate(connectors[provider]);
+  }, []);
+
   const { isOpen, onOpen, onClose } = useDisclosure();
 
   return (
@@ -81,38 +108,75 @@ export default function withAction() {
             </HStack>
           </HStack>
           <Flex alignItems={"center"}>
-            <Link href="/connectWallet" passHref>
-              <Button
-                display={{ base: "none", md: "inline-flex" }}
-                fontSize={"sm"}
-                fontWeight={600}
-                color={"white"}
-                bg={"pink.400"}
-                mr={4}
-                href={"/connectWallet"}
-                _hover={{
-                  bg: "pink.300",
-                }}
-              >
-                Sign Up
-              </Button>
-            </Link>
-            <Link href="/connectWallet" passHref>
-              <Button
-                display={{ base: "none", md: "inline-flex" }}
-                fontSize={"sm"}
-                fontWeight={600}
-                color={"white"}
-                bg={"pink.400"}
-                mr={4}
-                href={"/connectWallet"}
-                _hover={{
-                  bg: "pink.300",
-                }}
-              >
-                Log In
-              </Button>
-            </Link>
+            {!active ? (
+              <>
+                <Link href="/connectWallet" passHref>
+                  <Button
+                    display={{ base: "none", md: "inline-flex" }}
+                    fontSize={"sm"}
+                    fontWeight={600}
+                    color={"white"}
+                    bg={"pink.400"}
+                    mr={4}
+                    href={"/connectWallet"}
+                    _hover={{
+                      bg: "pink.300",
+                    }}
+                  >
+                    Sign Up
+                  </Button>
+                </Link>
+                <Link href="/connectWallet" passHref>
+                  <Button
+                    display={{ base: "none", md: "inline-flex" }}
+                    fontSize={"sm"}
+                    fontWeight={600}
+                    color={"white"}
+                    bg={"pink.400"}
+                    mr={4}
+                    href={"/connectWallet"}
+                    _hover={{
+                      bg: "pink.300",
+                    }}
+                  >
+                    Log In
+                  </Button>
+                </Link>
+              </>
+            ) : (
+              <>
+                <Menu>
+                  <MenuButton
+                    as={IconButton}
+                    rounded={"full"}
+                    minW={30}
+                    icon={<IoPersonOutline />}
+                    colorScheme="pink"
+                  >
+                    {/* <Avatar mr={4} size="sm" bg="pink.500" /> */}
+                    Profile
+                  </MenuButton>
+                  <MenuList>
+                    <MenuGroup title="Profile">
+                      <Link href="/account" passHref>
+                        <MenuItem>My Account</MenuItem>
+                      </Link>
+                      <MenuItem
+                        icon={<ExternalLinkIcon />}
+                        onClick={disconnect}
+                      >
+                        Logout{" "}
+                      </MenuItem>
+                    </MenuGroup>
+                    <MenuDivider />
+                    <MenuGroup title="Help">
+                      <MenuItem>Docs</MenuItem>
+                      <MenuItem>FAQ</MenuItem>
+                    </MenuGroup>
+                  </MenuList>
+                </Menu>
+              </>
+            )}
 
             {/* <Menu>
               <MenuButton

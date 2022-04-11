@@ -1,181 +1,233 @@
-/* eslint-disable react-hooks/rules-of-hooks */
-import React, { useEffect, useState } from "react";
-
-import Layout from "../components/Layout";
-import MetaMaskAuth from "../components/metamask-auth";
-
+import { useEffect, useState } from "react";
 import {
-  Heading,
-  Avatar,
-  Box,
-  Center,
-  Image,
-  Flex,
-  Text,
-  Stack,
+  VStack,
+  useDisclosure,
   Button,
-  useColorModeValue,
+  Text,
+  HStack,
+  Select,
+  Input,
+  Box,
 } from "@chakra-ui/react";
+import Layout from "../components/Layout";
+import SelectWalletModal from "../components/account/connectModal";
+import { useWeb3React } from "@web3-react/core";
+import { CheckCircleIcon, WarningIcon } from "@chakra-ui/icons";
+import { Tooltip } from "@chakra-ui/react";
+import { networkParams } from "../utils/networks";
+import { connectors } from "../utils/connectors";
+import { toHex, truncateAddress } from "../utils/utils";
 
-// const connectMetaMaskWallet = async () => {
-//   alert('hello')
-// try {
-//   const { ethereum } = window;
+export default function Home() {
+  const { isOpen, onOpen, onClose } = useDisclosure();
+  const { library, chainId, account, activate, deactivate, active } =
+    useWeb3React();
+  const [signature, setSignature] = useState("");
+  const [error, setError] = useState("");
+  const [network, setNetwork] = useState(undefined);
+  const [message, setMessage] = useState("");
+  const [signedMessage, setSignedMessage] = useState("");
+  const [verified, setVerified] = useState();
 
-//   if (!ethereum) {
-//     alert("Please install MetaMask!");
-//     return;
-//   }
+  const handleNetwork = (e) => {
+    const id = e.target.value;
+    setNetwork(Number(id));
+  };
 
-//   const accounts = await ethereum.request({
-//     method: "eth_requestAccounts",
-//   });
+  const handleInput = (e) => {
+    const msg = e.target.value;
+    setMessage(msg);
+  };
 
-//   console.log("Connected", accounts[0]);
-// } catch (error) {
-//   console.log(error);
-// }
-// }
-
-function isMobileDevice() {
-  return "ontouchstart" in window || "onmsgesturechange" in window;
-}
-
-async function connect(onConnected) {
-  if (!window.ethereum) {
-    alert("Get MetaMask!");
-    return;
-  }
-
-  const accounts = await window.ethereum.request({
-    method: "eth_requestAccounts",
-  });
-
-  onConnected(accounts[0]);
-}
-
-async function checkIfWalletIsConnected(onConnected) {
-  if (window.ethereum) {
-    const accounts = await window.ethereum.request({
-      method: "eth_accounts",
-    });
-
-    if (accounts.length > 0) {
-      const account = accounts[0];
-      onConnected(account);
-      return;
+  const switchNetwork = async () => {
+    try {
+      await library.provider.request({
+        method: "wallet_switchEthereumChain",
+        params: [{ chainId: toHex(network) }],
+      });
+    } catch (switchError) {
+      if (switchError.code === 4902) {
+        try {
+          await library.provider.request({
+            method: "wallet_addEthereumChain",
+            params: [networkParams[toHex(network)]],
+          });
+        } catch (error) {
+          setError(error);
+        }
+      }
     }
+  };
 
-    if (isMobileDevice()) {
-      await connect(onConnected);
-    }
-  }
+  // const signMessage = async () => {
+  //   if (!library) return;
+  //   try {
+  //     const signature = await library.provider.request({
+  //       method: "personal_sign",
+  //       params: [message, account],
+  //     });
+  //     setSignedMessage(message);
+  //     setSignature(signature);
+  //   } catch (error) {
+  //     setError(error);
+  //   }
+  // };
+
+  // const verifyMessage = async () => {
+  //   if (!library) return;
+  //   try {
+  //     const verify = await library.provider.request({
+  //       method: "personal_ecRecover",
+  //       params: [signedMessage, signature],
+  //     });
+  //     setVerified(verify === account.toLowerCase());
+  //   } catch (error) {
+  //     setError(error);
+  //   }
+  // };
+
+  const refreshState = () => {
+    window.localStorage.setItem("provider", undefined);
+    setNetwork("");
+    setMessage("");
+    setSignature("");
+    setVerified(undefined);
+  };
+
+  const disconnect = () => {
+    refreshState();
+    deactivate();
+  };
+
+  useEffect(() => {
+    const provider = window.localStorage.getItem("provider");
+    if (provider) activate(connectors[provider]);
+  }, []);
+
+  return (
+    <>
+      <Layout>
+        <VStack justifyContent="center" alignItems="center" h="100vh">
+          <HStack marginBottom="10px">
+            <Text
+              margin="0"
+              lineHeight="1.15"
+              fontSize={["1.5em", "2em", "3em", "4em"]}
+              fontWeight="600"
+            >
+              Let us get started with your account
+            </Text>
+          </HStack>
+          <HStack>
+            {!active ? (
+              <Button
+                size="md"
+                height="48px"
+                width="200px"
+                border="2px"
+                colorScheme="pink"
+                variant="solid"
+                onClick={onOpen}
+              >
+                Connect Wallet
+              </Button>
+            ) : (
+              <Button onClick={disconnect}>Disconnect</Button>
+            )}
+          </HStack>
+          <VStack justifyContent="center" alignItems="center" padding="10px 0">
+            <HStack>
+              <Text>{`Connection Status: `}</Text>
+              {active ? (
+                <CheckCircleIcon color="green" />
+              ) : (
+                <WarningIcon color="#cd5700" />
+              )}
+            </HStack>
+
+            <Tooltip label={account} placement="right">
+              <Text>{`Account: ${truncateAddress(account)}`}</Text>
+            </Tooltip>
+            <Text>{`Network ID: ${chainId ? chainId : "No Network"}`}</Text>
+          </VStack>
+          {active && (
+            <HStack justifyContent="flex-start" alignItems="flex-start">
+              <Box
+                maxW="sm"
+                borderWidth="1px"
+                borderRadius="lg"
+                overflow="hidden"
+                padding="10px"
+              >
+                <VStack>
+                  <Button onClick={switchNetwork} isDisabled={!network}>
+                    Switch Network
+                  </Button>
+                  <Select placeholder="Select network" onChange={handleNetwork}>
+                    <option value="3">Ropsten</option>
+                    <option value="4">Rinkeby</option>
+                    <option value="42">Kovan</option>
+                    <option value="1666600000">Harmony</option>
+                    <option value="42220">Celo</option>
+                  </Select>
+                </VStack>
+              </Box>
+              {/* <Box
+                maxW="sm"
+                borderWidth="1px"
+                borderRadius="lg"
+                overflow="hidden"
+                padding="10px"
+              >
+                <VStack>
+                  <Button onClick={signMessage} isDisabled={!message}>
+                    Sign Message
+                  </Button>
+                  <Input
+                    placeholder="Set Message"
+                    maxLength={20}
+                    onChange={handleInput}
+                    w="140px"
+                  />
+                  {signature ? (
+                    <Tooltip label={signature} placement="bottom">
+                      <Text>{`Signature: ${truncateAddress(signature)}`}</Text>
+                    </Tooltip>
+                  ) : null}
+                </VStack>
+              </Box>
+              <Box
+                maxW="sm"
+                borderWidth="1px"
+                borderRadius="lg"
+                overflow="hidden"
+                padding="10px"
+              >
+                <VStack>
+                  <Button onClick={verifyMessage} isDisabled={!signature}>
+                    Verify Message
+                  </Button>
+                  {verified !== undefined ? (
+                    verified === true ? (
+                      <VStack>
+                        <CheckCircleIcon color="green" />
+                        <Text>Signature Verified!</Text>
+                      </VStack>
+                    ) : (
+                      <VStack>
+                        <WarningIcon color="red" />
+                        <Text>Signature Denied!</Text>
+                      </VStack>
+                    )
+                  ) : null}
+                </VStack>
+              </Box> */}
+            </HStack>
+          )}
+          <Text>{error ? error.message : null}</Text>
+        </VStack>
+        <SelectWalletModal isOpen={isOpen} closeModal={onClose} />
+      </Layout>
+    </>
+  );
 }
-
-// export default function MetaMaskAuth({ onAddressChanged }) {
-//   const [userAddress, setUserAddress] = useState("");
-
-//   useEffect(() => {
-//     checkIfWalletIsConnected(setUserAddress);
-//   }, []);
-
-//   useEffect(() => {
-//     onAddressChanged(userAddress);
-//   }, [userAddress]);
-
-//   return userAddress ? (
-//     <div>
-//       Connected with <Address userAddress={userAddress} />
-//     </div>
-//   ) : (
-//      <Connect setUserAddress={setUserAddress}/>
-//   );
-// }
-
-function Connect({ setUserAddress }) {
-  if (isMobileDevice()) {
-    const dappUrl = "metamask-auth.ilamanov.repl.co"; // TODO enter your dapp URL. For example: https://uniswap.exchange. (don't enter the "https://")
-    const metamaskAppDeepLink = "https://metamask.app.link/dapp/" + dappUrl;
-    return (
-      <a href={metamaskAppDeepLink}>
-        <button className={styles.button}>Connect to MetaMask</button>
-      </a>
-    );
-  }
-}
-// export default function connectWalletCard() {
-const connectCard = () => (
-  <Layout>
-    <Center py={6}>
-      <Box
-        maxW={"270px"}
-        w={"full"}
-        // eslint-disable-next-line react-hooks/rules-of-hooks
-        bg={useColorModeValue("white", "gray.800")}
-        boxShadow={"2xl"}
-        rounded={"md"}
-        overflow={"hidden"}
-      >
-        <Box p={6}>
-          <Stack spacing={0} align={"center"} mb={5}>
-            <Heading fontSize={"2xl"} fontWeight={500} fontFamily={"body"}>
-              Connect your wallet
-            </Heading>
-          </Stack>
-
-          {/* <MetaMaskAuth onAddressChanged={address => {}}/> */}
-
-          <Button
-            w={"full"}
-            mt={8}
-            bg={useColorModeValue("#151f21", "gray.900")}
-            color={"white"}
-            rounded={"md"}
-            _hover={{
-              transform: "translateY(-2px)",
-              boxShadow: "lg",
-            }}
-          >
-            MetaMask
-          </Button>
-
-          <Button
-            w={"full"}
-            mt={8}
-            bg={useColorModeValue("#151f21", "gray.900")}
-            color={"white"}
-            rounded={"md"}
-            _hover={{
-              transform: "translateY(-2px)",
-              boxShadow: "lg",
-            }}
-          >
-            WalletConnect
-          </Button>
-
-          <Button
-            w={"full"}
-            mt={8}
-            bg={useColorModeValue("#151f21", "gray.900")}
-            color={"white"}
-            rounded={"md"}
-            _hover={{
-              transform: "translateY(-2px)",
-              boxShadow: "lg",
-            }}
-          >
-            Phantom
-          </Button>
-
-          <Text color={"gray.500"}>
-            inlock supports Ethereum, Polygon, Binance, Avalanche, Fantom and
-            Solana chains
-          </Text>
-        </Box>
-      </Box>
-    </Center>
-  </Layout>
-);
-
-export default connectCard;
-// }
