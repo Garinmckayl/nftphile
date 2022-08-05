@@ -24,7 +24,7 @@ import { connectors } from "../utils/connectors";
 
 import { HamburgerIcon, CloseIcon, ExternalLinkIcon } from "@chakra-ui/icons";
 
-const Links = ["gallery", "protocol", "faq", "about", "contact"];
+const Links = ["gallery", "protocol", "faq", "contact"];
 
 const NavLink = ({ children }) => (
   <Link

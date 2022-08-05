@@ -109,7 +109,7 @@ export default function About() {
             <Link
               w={"full"}
               maxW={"md"}
-              href="https://www.linkedin.com/in/natnaelgetenew/"
+              href="https://www.linkedin.com/in/natnael-getenew-%E9%AB%98%E9%92%A8%E7%BB%A9/"
               passHref
             >
               <Button
